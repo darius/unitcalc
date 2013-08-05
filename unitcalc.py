@@ -112,7 +112,7 @@ parse_primary = make_parse_primary(parse_literal=lambda x: x, prefix_ops=prefix_
 
 token_grammar = r"""
 expr     = _ tokens
-tokens   = token _ tokens
+tokens   = token tokens
          | 
 token    = operator | unit | floatlit | intlit
 
@@ -120,12 +120,12 @@ operator = ([-+*/^]) _
          | (in)\b _
 unit     = ([A-Za-z]+) _ make_unit
 
-floatlit = float   join make_float Quantity
-intlit   = int     join make_int Quantity
+floatlit = float _  join make_float Quantity
+intlit   = int _    join make_int Quantity
 
-float    = int frac exp _
-         | int frac _
-         | int exp _
+float    = int frac exp
+         | int frac
+         | int exp
 int      = (-[1-9]) digits
          | (-) digit
          | ([1-9]) digits
