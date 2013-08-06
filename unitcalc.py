@@ -30,23 +30,23 @@ class Quantity(object):
         return Quantity(-self.value, self.units)
 
     def __add__(self, other):
-        assert isinstance(other, Quantity)
+        assert isinstance(other, Quantity), other
         check_compatible(self, other)
         return Quantity(self.value + other.value, self.units)
 
     def __sub__(self, other):
-        assert isinstance(other, Quantity)
+        assert isinstance(other, Quantity), other
         check_compatible(self, other)
         return Quantity(self.value - other.value, self.units)
 
     def __mul__(self, other):
-        assert isinstance(other, Quantity)
+        assert isinstance(other, Quantity), other
         units = {u: self.units.get(u, 0) + other.units.get(u, 0)
                  for u in set(self.units.keys() + other.units.keys())}
         return Quantity(self.value * other.value, units)
 
     def __div__(self, other):
-        assert isinstance(other, Quantity)
+        assert isinstance(other, Quantity), other
         units = {u: self.units.get(u, 0) - other.units.get(u, 0)
                  for u in set(self.units.keys() + other.units.keys())}
         return Quantity(self.value / other.value, units)
