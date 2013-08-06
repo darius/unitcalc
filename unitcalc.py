@@ -112,7 +112,11 @@ standard_units = dict(foot = Quantity(0.3048, {'m':1}))
 def make_unit(name):
     return standard_units.get(name, Quantity(1, {name: 1}))
 
-parse_primary = make_parse_primary(parse_literal=lambda x: x, prefix_ops=prefix_ops)
+def parse_literal(literal):
+    assert literal is not None
+    return literal
+
+parse_primary = make_parse_primary(parse_literal=parse_literal, prefix_ops=prefix_ops)
 
 token_grammar = r"""
 expr     = _ tokens $
@@ -180,6 +184,5 @@ def calc(string):
 ## calc('-3 - 2 - 1')
 #. -6
 
-## calc('')  # XXX should complain
 ## calc(' ( 1 ) ')
 #. 1
