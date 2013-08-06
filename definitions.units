@@ -1851,7 +1851,7 @@ apscruple               1|3 apdram
 
 # Liquid measure
 
-usgallon                231 in^3        # US liquid measure is derived from
+usgallon                231 inch^3        # US liquid measure is derived from
 gal                     gallon          # the British wine gallon of 1707.
 quart                   1|4 gallon      # See the "winegallon" entry below
 pint                    1|2 quart       # more historical information.
@@ -1881,7 +1881,7 @@ usfirkin                9 usgallon
 # Dry measures: The Winchester Bushel was defined by William III in 1702 and
 # legally adopted in the US in 1836.
 
-usbushel                2150.42 in^3  # Volume of 8 inch cylinder with 18.5
+usbushel                2150.42 inch^3  # Volume of 8 inch cylinder with 18.5
 bu                      bushel        # inch diameter (rounded)
 peck                    1|4 bushel
 uspeck                  1|4 usbushel
@@ -1890,10 +1890,10 @@ pk                      peck
 drygallon               1|2 uspeck
 dryquart                1|4 drygallon
 drypint                 1|2 dryquart
-drybarrel               7056 in^3     # Used in US for fruits, vegetables,
+drybarrel               7056 inch^3   # Used in US for fruits, vegetables,
                                       #   and other dry commodities except for
                                       #   cranberries.
-cranberrybarrel         5826 in^3     # US cranberry barrel
+cranberrybarrel         5826 inch^3     # US cranberry barrel
 heapedbushel            1.278 usbushel# The following explanation for this
                                       #   value was provided by Wendy Krieger
                                       #   <os2fan2@yahoo.com> based on
@@ -2220,7 +2220,7 @@ englishcarat            troyounce/151.5 # Originally intended to be 4 grain
 mancus                  2 oz
 mast                    2.5 lb
 nailkeg                 100 lbs
-basebox                 31360 in^2      # Used in metal plating
+basebox                 31360 inch^2      # Used in metal plating
 
 # alternate spellings
 
@@ -2239,19 +2239,19 @@ geometricpace           5 ft   # distance between points where the same
                                # foot hits the ground
 pace                    2.5 ft # distance between points where alternate
                                # feet touch the ground
-USmilitarypace          30 in  # United States official military pace
-USdoubletimepace        36 in  # United States official doubletime pace
-fingerbreadth           7|8 in # The finger is defined as either the width
-fingerlength            4.5 in #   or length of the finger
+USmilitarypace          30 inch  # United States official military pace
+USdoubletimepace        36 inch  # United States official doubletime pace
+fingerbreadth           7|8 inch # The finger is defined as either the width
+fingerlength            4.5 inch #   or length of the finger
 finger                  fingerbreadth
 palmwidth               hand   # The palm is a unit defined as either the width
-palmlength              8 in   #   or the length of the hand
+palmlength              8 inch   #   or the length of the hand
 hand                    4 inch # width of hand
 shaftment               6 inch # Distance from tip of outstretched thumb to the
                                #   opposite side of the palm of the hand.  The
                                #   ending -ment is from the old English word
                                #   for hand. [18]
-smoot              5 ft + 7 in # Created as part of an MIT fraternity prank.
+smoot              5 ft + 7 inch # Created as part of an MIT fraternity prank.
                                #   In 1958 Oliver Smoot was used to measure
                                #   the length of the Harvard Bridge, which was
                                #   marked off in smooth lengths.  These
@@ -2625,12 +2625,12 @@ lbf                     lb force
 tonf                    ton force
 lbm                     lb
 kip                     1000 lbf     # from kilopound
-ksi                     kip / in^2
+ksi                     kip / inch^2
 mil                     0.001 inch
 thou                    0.001 inch
 tenth                   0.0001 inch  # one tenth of one thousandth of an inch
 millionth               1e-6 inch    # one millionth of an inch
-circularinch            1|4 pi in^2  # area of a one-inch diameter circle
+circularinch            1|4 pi inch^2  # area of a one-inch diameter circle
 circleinch              circularinch #    A circle with diameter d inches has
                                      #    an area of d^2 circularinches
 cylinderinch         circleinch inch # Cylinder h inch tall, d inches diameter
@@ -2652,10 +2652,10 @@ sabin                   ft^2         # Measure of sound absorption equal to the
                                      #   sound absorptivity of an object is the
                                      #   area times a dimensionless
                                      #   absorptivity coefficient.
-standardgauge          4 ft + 8.5 in # Standard width between railroad track
+standardgauge          4 ft + 8.5 inch # Standard width between railroad track
 flag                   5 ft^2        # Construction term referring to sidewalk.
 rollwallpaper          30 ft^2       # Area of roll of wall paper
-fillpower              in^3 / ounce  # Density of down at standard pressure.
+fillpower              inch^3 / ounce  # Density of down at standard pressure.
                                      #   The best down has 750-800 fillpower.
 pinlength              1|16 inch     # A #17 pin is 17/16 in long in the USA.
 buttonline             1|40 inch     # The line was used in 19th century USA
@@ -2670,7 +2670,7 @@ diamond                8|5 ft        # Marking on US tape measures that is
                                      #   that the numbers appear in red every
                                      #   16 inches as well, giving six
                                      #   divisions in 8 feet.
-retmaunit              1.75 in       # Height of rack mountable equipment.
+retmaunit              1.75 inch       # Height of rack mountable equipment.
 U                      retmaunit     #   Equipment should be 1|32 inch narrower
 RU                     U             #   than its U measurement indicates to
                                      #   allow for clearance, so 4U=(6+31|32)in
@@ -2921,7 +2921,7 @@ perm_0C                 grain / hr ft^2 inHg
 perm_zero               perm_0C
 perm_0                  perm_0C
 perm                    perm_0C
-perm_23C                grain / hr ft^2 in Hg23C
+perm_23C                grain / hr ft^2 inch Hg23C
 perm_twentythree        perm_23C
 
 #
@@ -3099,8 +3099,8 @@ paperM                  lb / 1000
 # paper weight values.
 
 paperdensity            0.8 g/cm^3        # approximate--paper densities vary!
-papercaliper            in paperdensity
-paperpoint              0.001 in paperdensity
+papercaliper            inch paperdensity
+paperpoint              0.001 inch paperdensity
 
 #
 # Printing
@@ -3361,7 +3361,7 @@ worstedyarncount        1680 ft/pound
 metricyarncount         meter/gram
 denier                  1|9 tex            # used for silk and rayon
 manchesteryarnnumber    drams/1000 yards   # old system used for silk
-pli                     lb/in
+pli                     lb/inch
 typp                    1000 yd/lb   # abbreviation for Thousand Yard Per Pound
 asbestoscut             100 yd/lb    # used for glass and asbestos yarn
 
@@ -3381,7 +3381,7 @@ heer                    600 yards
 cut                     300 yards    # used for wet-spun linen yarn
 lea                     300 yards
 
-sailmakersyard          28.5 in
+sailmakersyard          28.5 inch
 sailmakersounce         oz / sailmakersyard 36 inch
 
 silkmomme               momme / 25 yards 1.49 inch  # Traditional silk weight
@@ -3567,7 +3567,7 @@ rick                    4 ft 8 ft 16 inches # Stack of firewood, supposedly
                                      #   stack of wood.
 stere                   m^3
 timberfoot              ft^3         # Used for measuring solid blocks of wood
-standard                120 12 ft 11 in 1.5 in  # This is the St Petersburg or
+standard                120 12 ft 11 inch 1.5 inch  # This is the St Petersburg or
                                      #   Pittsburg standard.  Apparently the
                                      #   term is short for "standard hundred"
                                      #   which was meant to refer to 100 pieces
@@ -3589,10 +3589,10 @@ hoppuston              50 hoppusfoot #   estimating the usable volume of a log.
 # of wood less than 7 inches wide is called a "batten".  This unit is now used
 # exclusively for fir and pine.
 
-deal              12 ft 11 in 2.5 in # The standard North American deal [OED]
-wholedeal        12 ft 11 in 1.25 in # If it's half as thick as the standard
+deal              12 ft 11 inch 2.5 inch # The standard North American deal [OED]
+wholedeal        12 ft 11 inch 1.25 inch # If it's half as thick as the standard
                                      #   deal it's called a "whole deal"!
-splitdeal         12 ft 11 in 5|8 in # And half again as thick is a split deal.
+splitdeal         12 ft 11 inch 5|8 inch # And half again as thick is a split deal.
 
 
 #
@@ -4902,7 +4902,7 @@ centurium    centuria
 
 # Roman volumes
 
-sextarius       35.4 in^3      # Basic unit of Roman volume.  As always,
+sextarius       35.4 inch^3      # Basic unit of Roman volume.  As always,
 sextarii        sextarius      # there is uncertainty.  Six large Roman
                                # measures survive with volumes ranging from
                                # 34.4 in^3 to 39.55 in^3.  Three of them
@@ -4974,12 +4974,12 @@ romanaspound    4210 grain    # Old pound based on bronze coinage, the
 
 # Egyptian length measure
 
-egyptianroyalcubit      20.63 in    # plus or minus .2 in
+egyptianroyalcubit      20.63 inch    # plus or minus .2 in
 egyptianpalm            1|7 egyptianroyalcubit
 egyptiandigit           1|4 egyptianpalm
 egyptianshortcubit      6 egyptianpalm
 
-doubleremen             29.16 in  # Length of the diagonal of a square with
+doubleremen             29.16 inch  # Length of the diagonal of a square with
 remendigit       1|40 doubleremen # side length of 1 royal egyptian cubit.
                                   # This is divided into 40 digits which are
                                   # not the same size as the digits based on
@@ -4987,7 +4987,7 @@ remendigit       1|40 doubleremen # side length of 1 royal egyptian cubit.
 
 # Greek length measures
 
-greekfoot               12.45 in      # Listed as being derived from the
+greekfoot               12.45 inch      # Listed as being derived from the
 greekfeet               greekfoot     # Egyptian Royal cubit in [11].  It is
 greekcubit              1.5 greekfoot # said to be 3|5 of a 20.75 in cubit.
 pous                    greekfoot
@@ -5054,14 +5054,14 @@ attictalent             60 atticmina     # Supposedly the mass of a cubic foot
 # central and Western Europe until modern times when it was displaced by
 # the metric system.
 
-northerncubit           26.6 in           # plus/minus .2 in
+northerncubit           26.6 inch           # plus/minus .2 in
 northernfoot            1|2 northerncubit
 
 sumeriancubit           495 mm
 kus                     sumeriancubit
 sumerianfoot            2|3 sumeriancubit
 
-assyriancubit           21.6 in
+assyriancubit           21.6 inch
 assyrianfoot            1|2 assyriancubit
 assyrianpalm            1|3 assyrianfoot
 assyriansusi            1|20 assyrianpalm
@@ -5072,12 +5072,12 @@ persianroyalcubit       7 assyrianpalm
 # Arabic measures.  The arabic standards were meticulously kept.  Glass weights
 # accurate to .2 grains were made during AD 714-900.
 
-hashimicubit            25.56 in          # Standard of linear measure used
+hashimicubit            25.56 inch          # Standard of linear measure used
                                           # in Persian dominions of the Arabic
                                           # empire 7-8th cent.  Is equal to two
                                           # French feet.
 
-blackcubit              21.28 in
+blackcubit              21.28 inch
 arabicfeet              1|2 blackcubit
 arabicfoot              arabicfeet
 arabicinch              1|12 arabicfoot
@@ -5101,8 +5101,8 @@ arabictradepound        traderotl
 
 parasang                3.5 mile # Persian unit of length usually thought
                                  # to be between 3 and 3.5 miles
-biblicalcubit           21.8 in
-hebrewcubit             17.58 in
+biblicalcubit           21.8 inch
+hebrewcubit             17.58 inch
 li                      10|27.8 mile  # Chinese unit of length
                                       #   100 li is considered a day's march
 liang                   11|3 oz       # Chinese weight unit
