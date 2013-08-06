@@ -5,7 +5,6 @@ pip install peglet
 
 To do:
 make 'x in y' carry along y's units instead of being scalar
-parse juxtaposition as multiplying
 friendlier error reporting
 add more standard units to convert between (use units.txt?)
 """
@@ -152,24 +151,27 @@ def calc(string):
 
 ## calc('5')
 #. 5
-## calc('5*m')
+## calc('5 m')
 #. 5 m
-## calc('5*m + 3*m')
+## calc('5 m + 3 m')
 #. 8 m
-## calc('52.1*m * 3*m')
+## calc('52.1 m * 3 m')
 #. 156.3 m^2
-## calc('5 * m / s')
+## calc('5 m / s')
 #. 5.0 m s^-1
-## calc('5 * m / s^2')
+## calc('5 m / s^2')
 #. 5.0 m s^-2
 ## calc('-5')
 #. -5
 ## calc('')  # XXX should complain
-## calc('20 * m / s^2 in 10 * m/s^2')
+## calc('20 m / s^2 in 10   m/s^2')
 #. 2.0
 ## calc('2 in 1')
 #. 2.0
-## calc('2 * foot')
+## calc('2 foot')
 #. 0.6096 m
-## calc('3*m in foot')
+## calc('3 m in foot')
 #. 9.84251968503937
+
+## calc('-3 - 2 - 1')
+#. -6
