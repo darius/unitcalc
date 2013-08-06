@@ -94,6 +94,7 @@ infix_ops = {
     'in':   (15,   16,   in_units),       # XXX should be nonassociative
     '*':    (20,   21,   operator.mul),
     '/':    (20,   21,   operator.div), 
+    '|':    (20,   21,   operator.div), 
     '^':    (30,   30,   operator.pow), # right-associative
 }
 
@@ -114,14 +115,14 @@ def make_unit(name):
 parse_primary = make_parse_primary(parse_literal=lambda x: x, prefix_ops=prefix_ops)
 
 token_grammar = r"""
-expr     = _ tokens
+expr     = _ tokens $
 tokens   = token tokens
          | 
 token    = operator | unit | floatlit | intlit
 
-operator = ([-+*/^]) _
+operator = ([-+*/|^()]) _
          | (in)\b _
-unit     = ([A-Za-z]+) _ make_unit
+unit     = ([A-Za-z_$%][A-Za-z_0-9$%]*) _ make_unit
 
 floatlit = float _  join make_float Quantity
 intlit   = int _    join make_int Quantity
@@ -167,7 +168,6 @@ def calc(string):
 #. 5.0 m s^-2
 ## calc('-5')
 #. -5
-## calc('')  # XXX should complain
 ## calc('20 m / s^2 in 10   m/s^2')
 #. 2.0
 ## calc('2 in 1')
@@ -179,3 +179,7 @@ def calc(string):
 
 ## calc('-3 - 2 - 1')
 #. -6
+
+## calc('')  # XXX should complain
+## calc(' ( 1 ) ')
+#. 1
