@@ -100,7 +100,11 @@ infix_ops = {
 prefix_ops = {
   # token  pprec    op
     '-':    (20,  lambda n: -n),
+    '/':    (25,  lambda n: Quantity(1) / n), # XXX right precedence?
 }
+
+## calc('/ m')
+#. 1.0 m^-1
 
 standard_units = dict(foot = Quantity(0.3048, {'m':1}))
 
