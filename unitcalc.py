@@ -6,14 +6,17 @@ pip install peglet
 To do:
 make 'x in y' carry along y's units instead of being scalar
 friendlier error reporting
-add more standard units to convert between (use units.txt?)
+fuller parsing of definitions.units
 """
 
 from __future__ import division
 import operator
+import re
 
 from peglet import Parser, join
 from precedence_climbing import make_parse_primary, make_parse_expr
+
+## loadme()
 
 class Quantity(object):
     "A value with units."
@@ -107,10 +110,14 @@ prefix_ops = {
 ## calc('/ m')
 #. 1.0 m^-1
 
-standard_units = dict(foot = Quantity(0.3048, {'m':1}))
+known_units = {'cm': Quantity(.01, {'m': 1})} # (bizarre that this is not in definitions.units)
+definitions = {}
 
-def make_unit(name):
-    return standard_units.get(name, Quantity(1, {name: 1}))
+def meaning(unit):
+    if unit not in known_units:
+        known_units[unit] = 'pending'
+        known_units[unit] = calc(definitions[unit])
+    return known_units[unit]
 
 def parse_literal(literal):
     assert literal is not None
@@ -126,7 +133,7 @@ token    = operator | unit | floatlit | intlit
 
 operator = ([-+*/|^()]) _
          | (in)\b _
-unit     = ([A-Za-z_$%][A-Za-z_0-9$%]*) _ make_unit
+unit     = ([A-Za-z_$%][A-Za-z_0-9$%]*) _ meaning
 
 floatlit = float _  join make_float Quantity
 intlit   = int _    join make_int Quantity
@@ -178,7 +185,7 @@ def calc(string):
 #. 2.0
 ## calc('2 foot')
 #. 0.6096 m
-## calc('3 m in foot')
+## calc('3 m in feet')
 #. 9.84251968503937
 
 ## calc('-3 - 2 - 1')
@@ -186,3 +193,31 @@ def calc(string):
 
 ## calc(' ( 1 ) ')
 #. 1
+
+## calc('3000 furlongs / fortnight')
+#. 0.49892857142857144 m s^-1
+
+def loadme():
+    lines = open('definitions.units').read().splitlines()
+    lines = iter(lines[:5174])   # unicode troubles after this
+    for line in lines:
+        while line.endswith('\\'):
+            line = line[:-1] + next(lines)
+        if line[:1].isalpha() or line[:1] == '%':
+            line = re.sub(r'#.*', '', line)
+            subject, definition = line.split(None, 1)
+            if definition.startswith('!'):
+                known_units[subject] = Quantity(1, {subject: 1})
+                continue
+            if any(ch in "()[],.'" for ch in subject):
+                continue
+            if "'" in definition:
+                continue
+            subject = re.sub(r'-$', '', subject)
+            definitions[subject] = definition
+            if subject != 'in' and subject+'s' not in definitions and subject+'s' not in known_units:
+                definitions[subject+'s'] = subject # XXX horrible hack
+
+## loadme()
+## sorted(known_units)
+#. ['A', 'K', 'US$', 'bit', 'cd', 'cm', 'day', 'feet', 'foot', 'fortnight', 'ft', 'furlong', 'furlongs', 'hour', 'hr', 'inch', 'kg', 'm', 'min', 'minute', 'mol', 'radian', 'rod', 's', 'sr', 'wholenote', 'yard']
