@@ -218,6 +218,3 @@ def loadme():
             if subject != 'in' and subject+'s' not in definitions and subject+'s' not in known_units:
                 definitions[subject+'s'] = subject # XXX horrible hack
 
-## loadme()
-## sorted(known_units)
-#. ['A', 'K', 'US$', 'bit', 'cd', 'cm', 'day', 'feet', 'foot', 'fortnight', 'ft', 'furlong', 'furlongs', 'hour', 'hr', 'inch', 'kg', 'm', 'min', 'minute', 'mol', 'radian', 'rod', 's', 'sr', 'wholenote', 'yard']
