@@ -20,6 +20,7 @@ def ok():
                 continue
             if "'" in definition:
                 continue
+            subject = re.sub(r'-$', '', subject)
             standard_units[subject] = calc(definition)
             print subject, definition
             print '  ', standard_units[subject]
