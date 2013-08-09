@@ -59,7 +59,7 @@ class Quantity(object):
 
     def __pow__(self, other):
         other_value = as_scalar(other)
-        units = {u: 2*p for u, p in self.units.items()}
+        units = {u: other_value*p for u, p in self.units.items()}
         return Quantity(self.value ** other_value, units)
 
 def check_compatible(u1, u2):
@@ -108,6 +108,8 @@ prefix_ops = {
     '/':    (25,  lambda n: Quantity(1) / n), # XXX right precedence?
 }
 
+## calc('(5 m)^3')
+#. 125 m^3
 ## calc('/ m')
 #. 1.0 m^-1
 
