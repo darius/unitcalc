@@ -97,8 +97,9 @@ infix_ops = {
     'in':   (15,   16,   in_units),       # XXX should be nonassociative
     '*':    (20,   21,   operator.mul),
     '/':    (20,   21,   operator.div), 
-    '|':    (20,   21,   operator.div), 
+    '':     (22,   23,   operator.mul), # since GNU Units gives this higher precedence
     '^':    (30,   30,   operator.pow), # right-associative
+    '|':    (40,   41,   operator.div), # also from GNU Units
 }
 
 prefix_ops = {
@@ -207,6 +208,7 @@ def loadme():
             line = re.sub(r'#.*', '', line)
             subject, definition = line.split(None, 1)
             if definition.startswith('!'):
+                # XXX handle !dimensionless
                 known_units[subject] = Quantity(1, {subject: 1})
                 continue
             if any(ch in "()[],.'" for ch in subject):

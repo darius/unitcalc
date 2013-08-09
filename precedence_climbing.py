@@ -61,9 +61,9 @@ def make_parse_expr(scan, infix_ops, parse_primary):
             lprec, rprec, op = infix_ops.get(scan.token, (-1, -1, None))
             if (lprec == -1
                 and scan.token not in (None, ')') # XXX anything else for this list?
-                and min_precedence <= infix_ops.get('*', (-1, -1, None))[0]):
+                and min_precedence <= infix_ops.get('', (-1, -1, None))[0]):
                 # Parse juxtaposition as multiplication:
-                lprec, rprec, op = infix_ops['*']
+                lprec, rprec, op = infix_ops['']
                 operand = op(operand, parse_expr(rprec))
                 continue
             if lprec < min_precedence: return operand
