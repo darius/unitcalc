@@ -209,9 +209,11 @@ def loadme():
         if line[:1].isalpha() or line[:1] == '%':
             line = re.sub(r'#.*', '', line)
             subject, definition = line.split(None, 1)
+            definition = definition.strip()
             if definition.startswith('!'):
-                # XXX handle !dimensionless
-                known_units[subject] = Quantity(1, {subject: 1})
+                assert definition in ('!', '!dimensionless')
+                unit = {subject: 1} if definition == '!' else {}
+                known_units[subject] = Quantity(1, unit)
                 continue
             if any(ch in "()[],.'" for ch in subject):
                 continue
