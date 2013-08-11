@@ -94,7 +94,7 @@ infix_ops = {
   # token  lprec rprec     op
     '+':    (10,   11,   operator.add), # left-associative
     '-':    (10,   11,   operator.sub),
-    'in':   (15,   16,   in_units),       # XXX should be nonassociative
+    'in':   (15,   16,   in_units),
     '*':    (20,   21,   operator.mul),
     '/':    (20,   21,   operator.div), 
     '':     (22,   23,   operator.mul), # since GNU Units gives this higher precedence
