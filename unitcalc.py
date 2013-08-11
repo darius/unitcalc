@@ -105,8 +105,10 @@ infix_ops = {
 prefix_ops = {
   # token  pprec    op
     '-':    (20,  lambda n: -n),
-    '/':    (25,  lambda n: Quantity(1) / n), # XXX right precedence?
+    '/':    (25,  lambda n: Quantity(1) / n), # XXX correct precedence? '/m s' meaning same as 's/m'
 }
+## calc('/m s')
+#. 1.0 m^-1 s
 
 ## calc('(5 m)^3')
 #. 125 m^3
