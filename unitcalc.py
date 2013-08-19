@@ -143,9 +143,10 @@ unit     = ([A-Za-z_$%][A-Za-z_0-9$%]*) _ meaning
 floatlit = float _  join make_float Quantity
 intlit   = int _    join make_int Quantity
 
-float    = int frac exp
-         | int frac
+float    = opt_int frac exp
+         | opt_int frac
          | int exp
+opt_int  = int | 
 int      = (-[1-9]) digits
          | (-) digit
          | ([1-9]) digits
@@ -202,6 +203,9 @@ def calc(string):
 ## calc('3000 furlongs / fortnight')
 #. 0.49892857142857144 m s^-1
 
+## calc('.9999 c')
+#. 299762478.7542 m s^-1
+
 def loadme():
     lines = open('definitions.units').read().splitlines()
     lines = iter(lines[:5174])   # unicode troubles after this
@@ -225,4 +229,3 @@ def loadme():
             definitions[subject] = definition
             if subject != 'in' and subject+'s' not in definitions and subject+'s' not in known_units:
                 definitions[subject+'s'] = subject # XXX horrible hack
-
