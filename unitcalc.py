@@ -229,3 +229,8 @@ def loadme():
             definitions[subject] = definition
             if subject != 'in' and subject+'s' not in definitions and subject+'s' not in known_units:
                 definitions[subject+'s'] = subject # XXX horrible hack
+
+if __name__ == '__main__':
+    import sys
+    loadme()
+    print calc(' '.join(sys.argv[1:]))
