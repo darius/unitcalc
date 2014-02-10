@@ -1,5 +1,6 @@
 """
-From https://github.com/darius/sketchbook/blob/master/parsing/precedence_climbing.py
+Adapted from
+https://github.com/darius/sketchbook/blob/master/parsing/precedence_climbing.py
 
 Parse infix expressions by precedence climbing. N.B. Not quite identical to 
 http://en.wikipedia.org/wiki/Operator-precedence_parser#Precedence_climbing_method
