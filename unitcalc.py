@@ -16,7 +16,7 @@ import re
 from peglet import Parser, join
 from precedence_climbing import make_parse_primary, make_parse_expr
 
-## loadme()
+## load()
 
 class Quantity(object):
     "A value with units."
@@ -115,7 +115,8 @@ prefix_ops = {
 ## calc('/ m')
 #. 1.0 m^-1
 
-known_units = {'cm': Quantity(.01, {'m': 1})} # (bizarre that this is not in definitions.units)
+known_units = {'cm': Quantity(.01, {'m': 1}), # (bizarre that this is not in definitions.units)
+               'km': Quantity(1e3, {'m': 1}),}
 definitions = {}
 
 def meaning(unit):
@@ -206,9 +207,9 @@ def calc(string):
 ## calc('.9999 c')
 #. 299762478.7542 m s^-1
 
-def loadme():
-    lines = open('definitions.units').read().splitlines()
-    lines = iter(lines[:5174])   # unicode troubles after this
+def load(filename='definitions.units'):
+    lines = open(filename).read().splitlines()
+    lines = iter(lines[:5174])   # XXX unicode troubles after this
     for line in lines:
         while line.endswith('\\'):
             line = line[:-1] + next(lines)
@@ -232,5 +233,5 @@ def loadme():
 
 if __name__ == '__main__':
     import sys
-    loadme()
+    load()
     print calc(' '.join(sys.argv[1:]))
