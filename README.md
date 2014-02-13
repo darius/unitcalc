@@ -4,6 +4,7 @@ unitcalc
 A calculator with units. Prerequisite: `pip install peglet`.
 
 What it can do:
+
     >>> from unitcalc import *
     >>> load()
     >>> calc('3000 furlongs / fortnight')
