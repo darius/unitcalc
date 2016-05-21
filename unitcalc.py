@@ -174,6 +174,8 @@ def calc(string):
 
 ## calc('5')
 #. 5
+## calc('5 %')
+#. 0.05
 ## calc('5 m')
 #. 5 m
 ## calc('5 m + 3 m')
